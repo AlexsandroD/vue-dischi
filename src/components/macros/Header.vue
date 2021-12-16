@@ -11,13 +11,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .logo{
-        background-color: #29313A;
-        display: flex;
-        align-items: center;
-        padding: 5px;
-        img{
-            width: 10px;
+    header{
+        height: 80PX;
+        .logo{
+            height: 100%;
+            background-color: #29313A;
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            img{
+                width: 50px;
+                }
         }
     }
 </style>

@@ -1,4 +1,4 @@
-@import '~bootstrap/scss/bootstrap.scss';
+
 
 
 // ======== RESETS ========
@@ -6,4 +6,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body{
+    background-color: #1E2D3B;
 }
