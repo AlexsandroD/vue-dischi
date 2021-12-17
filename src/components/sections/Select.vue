@@ -1,11 +1,11 @@
 <template>
   <div class="select">
     <select v-model="genreSelection" @change="$emit('selection',genreSelection)">
-        <option>---</option>
-        <option>Rock</option>
-        <option>Pop</option>
-        <option>Metal</option>
-        <option>Jazz</option>
+        <option value="">All</option>
+        <option value="rock">Rock</option>
+        <option value="pop">Pop</option>
+        <option value="metal">Metal</option>
+        <option value="jazz">Jazz</option>
     </select>
     <div class="select_arrow">
     </div>

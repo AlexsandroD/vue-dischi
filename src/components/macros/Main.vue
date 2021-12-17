@@ -1,73 +1,74 @@
 <template>
-<div>
-  <Select @selection="selectGenre"/>
-  <div class="container" >
-        <div class='cards-style' v-for="(card, index) in selectGenre" :key="index">
-          <Card :info="card"/>
-        </div>
+  <div>
+    <Select @selection="selectGenre" />
+    <div class="container">
+        <Card :info="card" v-for="(card, index) in genreSelected" :key="index" />
+    </div>
   </div>
-</div>
 </template>
 
 <script>
 import axios from "axios";
-import Card from"../commons/Card.vue";
-import Select from"../sections/Select.vue"
+import Card from "../commons/Card.vue";
+import Select from "../sections/Select.vue";
+
 export default {
   name: "Main",
-  components:{
+  components: {
     Card,
-    Select
+    Select,
   },
   data() {
     return {
-      cards:null,
-      genreSelection:"",
+      cards: [],
+      genreSelection: "",
     };
   },
-
-  computed:{
-    selectGenre(){
-      const arraySelected =  this.cards.filter((elm) => {
-        console.log('ciao');
-        return elm.genre.toLowerCase().includes(this.genreSelection.toLowerCase())
-      });
-      return arraySelected;
-    }
-  },
-  
-  
-
-  
-
-
   methods: {
-      
+    selectGenre(payload) {
+      this.genreSelection = payload;
+      console.log('methods')
     },
-    created() {
-      axios
-        .get("https://flynn.boolean.careers/exercises/api/array/music")
-        .then((response) => {
-          // handle success
-         this.cards = response.data.response;
-        })
-        .catch(function (error) {
-          // handle error
-          console.log(error);
-        });
+  },
+  computed: {
+    genreSelected() {
+      const arraySelection = this.cards.filter((elm) => {
+        return elm.genre
+          .toLowerCase()
+          .includes(this.genreSelection.toLowerCase()); // true o false
+      }); 
+      // se è true mantengo il personaggio altrimenti lo scarto
+      return arraySelection;
     },
+  },
+  created() {
+    console.log('created')
+    axios
+      .get("https://flynn.boolean.careers/exercises/api/array/music")
+      .then((response) => {
+        // handle success
+        this.cards = response.data.response;
+        console.log('axios')
+
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  },
 };
 </script>
 <style lang="scss" scoped>
-  .container{
-    display: flex;
-    width: 70%;
-    margin:60px auto;
-    flex-wrap: wrap;
+.container {
+  width: 70%;
+  margin: 60px auto;
+  display: grid;
+  justify-content: center;
+  grid-template-columns:repeat(auto-fill, 200px);
+  column-gap:30px;
+  row-gap: 20px;
+}
 
-    .cards-style{
-      width:calc(100% / 10 * 2);
-    }
 
-  }   
+
 </style>

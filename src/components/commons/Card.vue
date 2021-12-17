@@ -3,9 +3,8 @@
         <img :src="info.poster" alt="">
         <h2>{{info.title}}</h2>
         <div class="text">
-        <p>{{info.author}}</p>
-        <p>{{info.year}}</p>
-
+            <p>{{info.author}}</p>
+            <p>{{info.year}}</p>
         </div>
     </div>
 </template>
@@ -21,20 +20,17 @@ export default {
 
 <style lang="scss" scoped>
     .card{
-        display:flex;
-        flex-direction: column;
-        align-items: center;
-        min-height: 360px;
+        text-align: center;
+        // min-height: 360px;
         background-color:#2E3A46 ;
         padding: 15px;
-        margin:20px 10px;
+        // margin:20px 10px;
 
         
         img{
             width: 100%;
         }
         h2{
-            text-align: center;
             color: #fff;
             padding: 10px;
             margin-bottom: 10px;
