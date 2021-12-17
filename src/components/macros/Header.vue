@@ -21,6 +21,8 @@ export default {
             padding: 5px;
             img{
                 width: 50px;
+                margin-left: 15px;
+
                 }
         }
     }
