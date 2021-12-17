@@ -32,13 +32,11 @@ export default {
   },
   computed: {
     genreSelected() {
-      const arraySelection = this.cards.filter((elm) => {
+     return this.cards.filter((elm) => {
         return elm.genre
           .toLowerCase()
           .includes(this.genreSelection.toLowerCase()); // true o false
       }); 
-      // se è true mantengo il personaggio altrimenti lo scarto
-      return arraySelection;
     },
   },
   created() {
